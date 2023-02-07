@@ -52,3 +52,29 @@
     transition: background .7s ease;
     
 }
+
+
+
+.flexer_container{
+    display: flex;
+    justify-content: center;
+    gap: 35px
+  }
+  .result_box{
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 35px;
+  }
+  .mag{
+    margin-top: 15px;
+  }
+    #csv_form{
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    #csv_form input{
+      margin-top: 15px;
+      cursor: pointer;
+    }

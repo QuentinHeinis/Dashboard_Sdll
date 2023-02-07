@@ -1,1 +1,1 @@
-export { default as DashBoard } from './DashBoard/Dashboard';
+export { default as Inventaire } from './DashBoard/Inventaire';
