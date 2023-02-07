@@ -1,0 +1,54 @@
+.bar div{
+    display: none;
+    z-index: 100;
+}
+
+.bar:hover div{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 75%;
+    background-color: white;
+    left: 100%;
+    padding: 10px 15px;
+    width: 200px;
+}
+
+.bar:nth-child(n+7):hover div{
+    right: 100%;
+    left: auto;
+}
+
+
+.shadoow{
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+.Link::after{
+    content: "";
+    position: absolute;    
+    background: rgb(249 250 251 );
+    display: block;
+    width: 100%;
+    left: 0;
+    border-radius: 0.5rem;
+    height: 100%;
+    z-index: -1;
+    transition: transform .7s ease;
+    /* Initial state */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+  
+.Link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.activeLink, .Link{
+    transition: background .7s ease;
+    
+}
