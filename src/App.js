@@ -5,6 +5,7 @@ import { EAN, Inventaire } from './pages'
 import './App.css'
 
 import { useStateContext } from './contexts/ContextProvider'
+import LivraisonPb from './pages/DashBoard/LivraisonPb'
 
 const App = () => {
     const { activeMenu } = useStateContext();
@@ -38,6 +39,7 @@ const App = () => {
                             </>}/>
                             <Route path="/inventaire" element={<Inventaire/>}/>
                             <Route path="/ean" element={<EAN/>}/>
+                            <Route path="/livraisonPb" element={<LivraisonPb/>}/>
                         </Routes>
                     </div>
                 </div>

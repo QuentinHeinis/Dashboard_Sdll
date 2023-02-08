@@ -13,6 +13,11 @@ export const links = [
                 link: '/ean',
                 icon: <PresentationChartLineIcon className='h-6'/>,
             },
+            {
+                name: 'Livraison Petit Bateau',
+                link: '/livraisonPb',
+                icon: <PresentationChartLineIcon className='h-6'/>,
+            },
           ],
     }
 ]
