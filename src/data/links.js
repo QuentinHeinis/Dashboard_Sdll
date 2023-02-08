@@ -4,8 +4,13 @@ export const links = [
         title: 'Dashboard',
         links: [
             {
-                name: 'Inventaire',
-                link: '/',
+                name: 'Inventaire BCX',
+                link: '/inventaire',
+                icon: <PresentationChartLineIcon className='h-6'/>,
+            },
+            {
+                name: 'Livraison Shoes BCX',
+                link: '/ean',
                 icon: <PresentationChartLineIcon className='h-6'/>,
             },
           ],

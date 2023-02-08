@@ -29,7 +29,7 @@
 
 .Link::after{
     content: "";
-    position: absolute;    
+    position: absolute;
     background: rgb(249 250 251 );
     display: block;
     width: 100%;
@@ -42,7 +42,7 @@
     transform: scaleX(0);
     transform-origin: bottom right;
 }
-  
+
 .Link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
@@ -50,7 +50,7 @@
 
 .activeLink, .Link{
     transition: background .7s ease;
-    
+
 }
 
 
@@ -77,4 +77,22 @@
     #csv_form input{
       margin-top: 15px;
       cursor: pointer;
+    }
+    .enc_barrecodex{
+      position: relative;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 5px;
+      margin-left: 5px
+    }
+    .enc_barrecodex img{
+      width: 100%;
+      height: 100%;
+    }
+    .title_flexer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
     }

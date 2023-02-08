@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {NavBar, Footer, SideBar, ThemeSettings } from './components'
-import { Inventaire } from './pages'
+import { EAN, Inventaire } from './pages'
 import './App.css'
 
 import { useStateContext } from './contexts/ContextProvider'
@@ -33,7 +33,11 @@ const App = () => {
                     <div>
                         <Routes>
                             {/* Dashboard */}
-                            <Route path="/" element={<Inventaire/>}/>
+                            <Route path="/" element={<>
+                            <h1 className='text-2xl mt-12 w-full text-center'>Bienvenue</h1>
+                            </>}/>
+                            <Route path="/inventaire" element={<Inventaire/>}/>
+                            <Route path="/ean" element={<EAN/>}/>
                         </Routes>
                     </div>
                 </div>
