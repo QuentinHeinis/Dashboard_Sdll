@@ -16,7 +16,7 @@ export const links = [
           ],
     },
     {
-        title: 'Livraison',
+        title: 'Livraisons',
         links: [
             {
                 name: 'Livraison Shoes BCX',
@@ -26,6 +26,11 @@ export const links = [
             {
                 name: 'Livraison PB/CBL',
                 link: '/livraisonPb',
+                icon: <PresentationChartLineIcon className='h-6'/>,
+            },
+            {
+                name: 'Livraison Moulin Roty',
+                link: '/livraisonMR',
                 icon: <PresentationChartLineIcon className='h-6'/>,
             },
         ],
