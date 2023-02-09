@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import { createWorker } from 'tesseract.js';
 import Tesseract from 'tesseract.js';
-import { DocumentDuplicateIcon } from '@heroicons/react/outline';
+import { DocumentDuplicateIcon, ExclamationIcon } from '@heroicons/react/outline';
 
 
 const LivraisonPb = () => {
     const [ocr, setOcr] = useState('');
+    const [Warning, setWarning] = useState('');
       let flip = true
       let temp = ''
       const copie = ( ) =>{
@@ -42,6 +43,7 @@ const getOcr = (image) =>{
         {  }
       ).then(({ data: { text } }) => {
         setOcr(text)
+        setWarning('Vérifie le premier et dernier code EAN')
       })
 }
 
@@ -62,6 +64,7 @@ return(
     <button>Lancer scan</button>
 </form>
 <div className='border-2 border-main-rose rounded-md w-4/5 md:w-1/2 px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
+    {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
     <div className='flex w-full items-center justify-evenly'>
         <h1>Invent01</h1>
         <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
