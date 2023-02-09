@@ -8,48 +8,29 @@ import { DocumentDuplicateIcon, ExclamationIcon, QuestionMarkCircleIcon, XIcon }
 const LivraisonPb = () => {
     const [ocr, setOcr] = useState('');
     const [Warning, setWarning] = useState('');
+    const [importEanList, setImportEanList] = useState([]);
+    const [importQuantityList, setImportQuantityList] = useState([]);
       let flip = true
       let temp = ''
       const copie = ( ) =>{
-          let quantity = []
-          let ean = []
-          let texteCopie = ''
-        ocr.split('').map((char)=>{
-            if(char.length>0){
-                console.log(char)
-                if(char === ' ' || char === `\n`){
-                    console.log(temp)
-                    if(flip){
-                        quantity.push(temp)
-                    }else{
-                        ean.push(temp)
-                    }
-                    temp = ''
-                    
-                    flip = !flip
-                }else{
-                    temp += char
-                }
-            }
-        })
-        console.log(quantity)
-        console.log(ean)
-        for (let i = 0; i < quantity.length; i++) {
-            texteCopie += ean[i] + '\n' + 'Qte\n' + quantity[i] + '\n'
-            // console.log(ean[i] + '\n' + 'Qte \n' + quantity[i] + '\n')
+        let texteCopie = ''
+        for (let i = 0; i < importEanList.length; i++) {
+            texteCopie += importEanList[i] + '\n' + 'Qte\n' + importQuantityList[i] + '\n'
         }
         console.log(texteCopie)
         navigator.clipboard.writeText(texteCopie)
         alert(texteCopie)
-      }
-const getOcr = (image) =>{
-    Tesseract.recognize(
+    }
+let tempOcr = ""
+const getOcr = async(image) =>{
+    await Tesseract.recognize(
         image,
         'eng',
         {  }
-      ).then(({ data: { text } }) => {
-        setOcr(text)
+      ).then(async ({ data: { text } }) => {
+        tempOcr = text
         setWarning('Vérifie le premier et dernier code EAN')
+        setTimeout(1000)
       })
 }
 
@@ -57,14 +38,38 @@ const [isAsk, setIsAsk] = useState(true);
 const ask = () =>{
     setIsAsk(!isAsk)
 }
+let quantity = []
+let ean = []
 
 useEffect(()=>{
 let imageForm = document.getElementById('imageForm')
-imageForm.addEventListener('submit', (e)=>{
+imageForm.addEventListener('submit', async (e)=>{
     e.preventDefault()
     setOcr('Recognizing...')
     let image = URL.createObjectURL(e.target[0].files[0]);
-    getOcr(image)
+    await getOcr(image)
+    tempOcr.split('').map((char)=>{
+        if(char.length>0){
+            if(char === ' ' || char === `\n`){
+                if(flip){
+                    quantity.push(temp)
+                }else{
+                    ean.push(temp)
+                }
+                temp = ''
+                
+                flip = !flip
+            }else{
+                temp += char
+            }
+        }
+        // console.log(ean)
+        setImportQuantityList([...quantity])
+        setImportEanList([...ean])
+    })
+     quantity = []
+     ean = []
+
 })
 }, [])
 
@@ -80,7 +85,10 @@ return(
         <h1>Invent01</h1>
         <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
     </div>
-    <div>{ocr.split('\n').map(item=>(<p>{item}</p>))}</div>
+    <div className="flex gap-5">
+        <div>{importEanList.map(item=>(<p>{item}</p>))}</div>
+        <div>{importQuantityList.map(item=>(<p>{item}</p>))}</div>
+    </div>
 </div>
     <div>
         {isAsk ? 
