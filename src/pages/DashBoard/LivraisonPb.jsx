@@ -28,7 +28,7 @@ const LivraisonPb = () => {
             }
         })
         for (let i = 0; i < quantity.length; i++) {
-            texteCopie += ean[i] + '\n' + 'Qte \n' + quantity[i] + '\n'
+            texteCopie += ean[i] + '\n' + 'Qte\n' + quantity[i] + '\n'
             // console.log(ean[i] + '\n' + 'Qte \n' + quantity[i] + '\n')
         }
         console.log(texteCopie)
