@@ -7,6 +7,7 @@ import './App.css'
 import { useStateContext } from './contexts/ContextProvider'
 import LivraisonPb from './pages/DashBoard/LivraisonPb'
 import LivraisonMR from './pages/DashBoard/LivraisonMR'
+import HomePage from './pages/HomePage'
 
 const App = () => {
     const { activeMenu } = useStateContext();
@@ -35,9 +36,7 @@ const App = () => {
                     <div>
                         <Routes>
                             {/* Dashboard */}
-                            <Route path="/" element={<>
-                            <h1 className='text-2xl mt-12 w-full text-center'>Bienvenue</h1>
-                            </>}/>
+                            <Route path="/" element={<HomePage/>}/>
                             <Route path="/inventaire" element={<Inventaire/>}/>
                             <Route path="/ean" element={<EAN/>}/>
                             <Route path="/livraisonPb" element={<LivraisonPb/>}/>
