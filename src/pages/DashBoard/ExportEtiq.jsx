@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { DocumentDuplicateIcon } from '@heroicons/react/outline';
+import { DocumentDuplicateIcon, QuestionMarkCircleIcon, XIcon } from '@heroicons/react/outline';
 
 const ExportEtiq = () => {
 
@@ -53,6 +53,11 @@ const copie = ( ) =>{
     alert(texteCopie)
 }
 
+const [isAsk, setIsAsk] = useState(true);
+const ask = () =>{
+  setIsAsk(!isAsk)
+}
+
 return(
 <>
 <form id='imageForm' className='flex flex-col items-center border-2 border-main-rose min-w-fit w-1/3 mx-auto py-4 gap-2 px-2 rounded-md mt-4'>
@@ -74,6 +79,32 @@ return(
         ))}</div>
     </div>
 </div>
+{isAsk ? 
+        (<div className='p-2 bg-main-rose flex h-fit w-fit rounded-full fixed bottom-10 right-10 hover:cursor-pointer' onClick={ask}>
+            <QuestionMarkCircleIcon className='h-14 stroke-white'/>
+        </div>)
+        :
+        (<div  className="fixed top-0 bottom-0 left-0 right-0 bg-slate-500 bg-opacity-75 z-50 flex items-center justify-center">
+            <div className='absolute top-0 bottom-0 left-0 right-0' onClick={ask}></div>
+            <div className='w-4/5 h-1/2 bg-white rounded-md relative py-10 px-5 flex gap-1 md:w-1/2 overflow-y-scroll'>
+                <XIcon className='h-8 border-2 border-slate-400 rounded-full absolute top-1 right-1 hover:cursor-pointer' onClick={ask}/>
+                <p className='overflow-auto min-w-[200px]'>
+                    Après avoir fait les etiquettes sur lcv, tu fait un export XML du fichier généré pour les etiquettes (format galopins) puis tu selectionnes le fichier ici
+                    <br/>
+                    <br/>
+                    Le bouton pour copier le texte te le formate de la manière suivante : 
+                    <br/>
+                    xxxxxxxxxxxxx<br/>
+                    Qte<br/>
+                    x<br/>
+                    xxxxxxxxxxxxx<br/>
+                    Qte<br/>
+                    x<br/>
+                    <br/>
+                    Il ne te reste qu'à créer un fichier txt, mettre I et le nom du magasin avant de copier le texte
+                </p>
+            </div>
+        </div>)}
 </>
 )
 }

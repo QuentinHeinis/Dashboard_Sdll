@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import image from '../../images/full.png'
+import image from '../../images/txt.JPG'
 import grille from '../../data/grilleMR.csv'
 import { DocumentDuplicateIcon, ExclamationIcon, QuestionMarkCircleIcon, XIcon } from '@heroicons/react/outline';
 
@@ -144,12 +144,13 @@ return(
         :
         (<div  className="fixed top-0 bottom-0 left-0 right-0 bg-slate-500 bg-opacity-75 z-50 flex items-center justify-center">
             <div className='absolute top-0 bottom-0 left-0 right-0' onClick={ask}></div>
-            <div className='w-1/2 h-1/2 bg-white rounded-md relative py-10 px-5 flex'>
+            <div className='w-4/5 h-1/2 bg-white rounded-md relative py-10 px-5 flex gap-1 md:w-1/2 overflow-y-scroll'>
                 <XIcon className='h-8 border-2 border-slate-400 rounded-full absolute top-1 right-1 hover:cursor-pointer' onClick={ask}/>
-                <p>
-                    Assure toi que le scan comporte a gauche la quantité, a droite le code EAN, pour être sur que le scan lise bien les chiffres de la première et dernière ligne, assure toi qu'il y ai suffisamment de blanc au dessus de ces dites lignes. (cf. image de droite) <br/>
-                    Une fois le scan terminer, fait une rapide vérification des codes EAN.<br/>
-                    Le bouton pour copier le texte te le formate de la manière suivante : <br/>
+                <p className='overflow-auto min-w-[200px]'>
+                    Scanne le BL de Moulin roty avec le cache fait pour. fait un ocr avec l'application de scan. le resultat txt doit ressembler au fichier ci joint. Vérifie qu'il n'y ai pas d'erreur dans les codes et prix ( retour a la ligne involontaire, faute )
+                    <br/>
+                    Le bouton pour copier le texte te le formate de la manière suivante : 
+                    <br/>
                     xxxxxxxxxxxxx<br/>
                     Qte<br/>
                     x<br/>
