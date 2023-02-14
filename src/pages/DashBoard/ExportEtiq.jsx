@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import { DocumentDuplicateIcon } from '@heroicons/react/outline';
-import test from '../../data/Document.xml'
 
 const ExportEtiq = () => {
 
