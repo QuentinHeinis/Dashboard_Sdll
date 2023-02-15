@@ -20,7 +20,7 @@ const SideBar = () => {
   }
   
   return (
-    <div className='pl-3 [1024px]:hidden h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 z-50 bg-white border-r'>
+    <div className='pl-3  [1024px]:hidden h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 z-50 bg-white border-r'>
             {activeMenu && (
             <>
               <div className='flex justify-center items-center relative'>
