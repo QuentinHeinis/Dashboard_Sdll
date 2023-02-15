@@ -130,7 +130,7 @@ return(
     <div className='border-2 border-main-rose rounded-md w-4/5 md:w-1/3 px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
         {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
         <div className='flex w-full items-center justify-evenly'>
-            <h1>Erreurs</h1>
+            <h1>Ean non trouvé pour les refs :</h1>
         </div>
         <div className='flex gap-5'>
         <div>{importErrorList.map(item=>(<p>{item}</p>))}</div>

@@ -94,7 +94,7 @@ return(
             <div className='w-4/5 h-1/2 bg-white rounded-md relative py-10 px-5 flex gap-1 md:w-1/2 overflow-y-scroll'>
                 <XIcon className='h-8 border-2 border-slate-400 rounded-full absolute top-1 right-1 hover:cursor-pointer' onClick={ask}/>
                 <p className='overflow-auto min-w-[200px]'>
-                    Scanne le BL de Moulin roty avec le cache fait pour. fait un ocr avec l'application de scan. le resultat txt doit ressembler au fichier ci joint. Vérifie qu'il n'y ai pas d'erreur dans les codes et prix ( retour a la ligne involontaire, faute )
+                    Scanne le BL de Petit Bateau avec le cache fait pour. fait un ocr avec l'application de scan de l'imprimante en changeant le ppp a 600. Vérifie qu'il n'y ai pas d'erreur dans les codes et prix ( retour a la ligne involontaire, faute )
                     <br/>
                     Le bouton pour copier le texte te le formate de la manière suivante : 
                     <br/>
@@ -107,7 +107,6 @@ return(
                     <br/>
                     Il ne te reste qu'à créer un fichier txt, mettre I et le nom du magasin avant de copier le texte
                 </p>
-                <img src={image} alt="" />
             </div>
         </div>)}
     </div>
