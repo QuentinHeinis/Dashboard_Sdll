@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {NavBar, Footer, SideBar, ThemeSettings } from './components'
-import { EAN, ExportEtiq, Inventaire, LivraisonPbOcr } from './pages'
+import { EAN, ExportEtiq, Inventaire, LivraisonPbOcr, LivraisonMR, LivraisonPb,  HomePage} from './pages'
 import './App.css'
 
 import { useStateContext } from './contexts/ContextProvider'
-import LivraisonPb from './pages/DashBoard/LivraisonPb'
-import LivraisonMR from './pages/DashBoard/LivraisonMR'
-import HomePage from './pages/HomePage'
 
 const App = () => {
     const { activeMenu } = useStateContext();
