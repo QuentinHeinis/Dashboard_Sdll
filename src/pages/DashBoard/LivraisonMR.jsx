@@ -11,7 +11,6 @@ const LivraisonMR = () => {
     const [importQuantityList, setImportQuantityList] = useState([]);
     const [importErrorList, setImportErrorList] = useState([]);
     const [Warning, setWarning] = useState('');
-    const [totalQuantity, setTotalQuantity] = useState('0')
 
     let flip = true
     let listeEan = []
@@ -99,12 +98,6 @@ imageForm.addEventListener('submit', (e)=>{
       setImportRefList([...importRef])
       setImportEanList([...importEan])
       setImportErrorList([...importError])
-      let tempTotal = 0
-      importQuantity.forEach((num)=>{
-          tempTotal += parseInt(num)
-      })
-      setTotalQuantity(tempTotal)
-      console.log(tempTotal)
       importQuantity = []
       importRef = []
       importEan = []
@@ -125,7 +118,7 @@ return(
         {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
         <div className='flex w-full items-center justify-evenly'>
             <h1>Invent01</h1>
-            <div>total : {totalQuantity}</div>
+            <div>total code ean : {importEanList.length}</div>
             <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
         </div>
         {/* <div>{ocr.split('\n').map(item=>(<p>{item}</p>))}</div> */}
