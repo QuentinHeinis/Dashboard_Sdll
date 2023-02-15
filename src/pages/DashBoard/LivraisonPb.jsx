@@ -31,7 +31,7 @@ const getOcr = async(image) =>{
       ).then(async ({ data: { text } }) => {
         tempOcr = text
         setWarning('Vérifie le premier et dernier code EAN')
-        console.log(tempOcr)
+        // console.log(tempOcr)
         setTimeout(1000)
       })
 }
@@ -67,8 +67,8 @@ imageForm.addEventListener('submit', async (e)=>{
         setImportQuantityList([...quantity])
         setImportEanList([...ean])
     })
-    console.log(importQuantityList)
-    console.log(importEanList)
+    // console.log(importQuantityList)
+    // console.log(importEanList)
     let tempTotal = 0
     quantity.forEach((num)=>{
         tempTotal += parseInt(num)
