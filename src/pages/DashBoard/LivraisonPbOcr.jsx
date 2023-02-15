@@ -4,59 +4,23 @@ import grille from '../../data/grilleMR.csv'
 import { DocumentDuplicateIcon, ExclamationIcon, QuestionMarkCircleIcon, XIcon } from '@heroicons/react/outline';
 
 
-const LivraisonMR = () => {
-    const [ocr, setOcr] = useState('');
+const LivraisonPbOcr = () => {
     const [importRefList, setImportRefList] = useState([]);
-    const [importEanList, setImportEanList] = useState([]);
     const [importQuantityList, setImportQuantityList] = useState([]);
-    const [importErrorList, setImportErrorList] = useState([]);
     const [Warning, setWarning] = useState('');
-    let flip = true
-    let listeEan = []
-    let listeRef = []
     let importRef = []
     let importEan = []
     let importQuantity = []
-    let importError = []
-    let temp = ''
     const copie = ( ) =>{
         let texteCopie = ''
-        for (let i = 0; i < importEanList.length; i++) {
-            texteCopie += importEanList[i] + '\n' + 'Qte\n' + importQuantityList[i] + '\n'
+        for (let i = 0; i < importRefList.length; i++) {
+            texteCopie += importRefList[i] + '\n' + 'Qte\n' + importQuantityList[i] + '\n'
         }
         console.log(texteCopie)
         navigator.clipboard.writeText(texteCopie)
         alert(texteCopie)
     }
 
-  fetch(grille, {
-      method: 'get',
-      headers: {
-          'content-type': 'text/csv;charset=UTF-8',
-      }
-  })
-  .then(response=>response.text())
-  .then(response => {
-      response = response.split('\n')
-      // console.log(response)
-      response.forEach(line=>{
-          // console.log(line)
-          let flip = true
-          line.split(';').forEach(item=> {
-              if(flip){
-                  listeRef.push(item)
-              }else{
-                  let cleanItem = item.split('\r')[0]
-                  listeEan.push(cleanItem)
-              }
-              flip=!flip
-          })
-      })
-      // console.log(listeEan, listeRef)
-  })
-
-const getGrilleMr =() =>{
-}
 
 const [isAsk, setIsAsk] = useState(true);
 const ask = () =>{
@@ -67,7 +31,6 @@ useEffect(()=>{
 let imageForm = document.getElementById('imageForm')
 imageForm.addEventListener('submit', (e)=>{
   e.preventDefault()
-  setOcr('Recognizing...')
   let file = URL.createObjectURL(e.target[0].files[0]);
   fetch(file)
   .then(response => response.text())
@@ -75,32 +38,25 @@ imageForm.addEventListener('submit', (e)=>{
       data = data.split('')
       let cleanData = []
       data.forEach(char=>{
-          if(char == '0' || char == 1|| char == 2|| char == 3|| char == 4|| char == 5|| char == 6|| char == 7|| char == 8|| char == 9|| char == "\n" || char == ','){
+          if(char == '0' || char == 1|| char == 2|| char == 3|| char == 4|| char == 5|| char == 6|| char == 7|| char == 8|| char == 9|| char == "\n"){
               cleanData.push(char)
-          }
-      })
-
-      setOcr(cleanData.join(''))
-      cleanData.join('').split('\n').forEach((item)=>{
-        if(item === ""){
-        }else{
-            if(listeRef.findIndex(ref=> ref === item.substring(0,6)) > 0 ){
-                importRef.push(item.substring(0,6))
-                importEan.push(listeEan[listeRef.findIndex(ref=> ref === item.substring(0,6))])
-                importQuantity.push(item.substring(6).split(',')[0])
-            }else{
-                importError.push(item.substring(0,6))
             }
-        }
+        })
+        // console.log(cleanData)
+      cleanData.join('').split('\n').forEach((item)=>{
+            if(item === ""){
+            }else{
+                let ean = item.split('').reverse().slice(0, 13).reverse().join('')
+                let q = item.split('').reverse().slice(13, item.length+1).reverse().join('')
+                importRef.push(ean)
+                importQuantity.push(q)
+            }
       })
       setImportQuantityList([...importQuantity])
       setImportRefList([...importRef])
-      setImportEanList([...importEan])
-      setImportErrorList([...importError])
       importQuantity = []
       importRef = []
       importEan = []
-      importError = []
       
   })
 })
@@ -123,16 +79,6 @@ return(
         <div className='flex gap-5'>
         <div>{importRefList.map(item=>(<p>{item}</p>))}</div>
         <div>{importQuantityList.map(item=>(<p>{item}</p>))}</div>
-        <div>{importEanList.map(item=>(<p>{item}</p>))}</div>
-        </div>
-    </div>
-    <div className='border-2 border-main-rose rounded-md w-4/5 md:w-1/3 px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
-        {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
-        <div className='flex w-full items-center justify-evenly'>
-            <h1>Erreurs</h1>
-        </div>
-        <div className='flex gap-5'>
-        <div>{importErrorList.map(item=>(<p>{item}</p>))}</div>
         </div>
     </div>
 </div>
@@ -168,4 +114,4 @@ return(
 )
 }
 
-export default LivraisonMR
+export default LivraisonPbOcr

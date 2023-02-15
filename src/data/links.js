@@ -33,6 +33,12 @@ export const links = [
                 desc : "livraison petit bateau"
             },
             {
+                name: 'Livraison PB/CBL Bis',
+                link: '/livraisonPbOcr',
+                icon: <PresentationChartLineIcon className='h-6'/>,
+                desc : "livraison "
+            },
+            {
                 name: 'Livraison Moulin Roty',
                 link: '/livraisonMR',
                 icon: <PresentationChartLineIcon className='h-6'/>,
