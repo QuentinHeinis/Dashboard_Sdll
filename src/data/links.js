@@ -27,13 +27,13 @@ export const links = [
                 desc : "livraison faites avec l'application BarreCode-X APP"
             },
             {
-                name: 'Livraison PB/CBL',
+                name: 'Livraison PB/CBL img',
                 link: '/livraisonPb',
                 icon: <PresentationChartLineIcon className='h-6'/>,
                 desc : "livraison petit bateau"
             },
             {
-                name: 'Livraison PB/CBL Bis',
+                name: 'Livraison PB/CBL .txt',
                 link: '/livraisonPbOcr',
                 icon: <PresentationChartLineIcon className='h-6'/>,
                 desc : "livraison "
