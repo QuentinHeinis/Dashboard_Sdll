@@ -16,7 +16,7 @@ const HomePage = () => {
                           <p className='text-xs'>Description :</p>
                           <p className=''>{link.desc}</p>
                       </div>
-                        <ArrowCircleRightIcon className='h-10 absolute right-3 bottom-3'/>
+                        <ArrowCircleRightIcon className='h-10 absolute right-3 bottom-3 stroke-gray-400'/>
                     </NavLink>
                   ))}
                 </div>

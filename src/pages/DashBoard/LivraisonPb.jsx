@@ -10,6 +10,7 @@ const LivraisonPb = () => {
     const [Warning, setWarning] = useState('');
     const [importEanList, setImportEanList] = useState([]);
     const [importQuantityList, setImportQuantityList] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState('0')
       let flip = true
       let temp = ''
       const copie = ( ) =>{
@@ -30,10 +31,10 @@ const getOcr = async(image) =>{
       ).then(async ({ data: { text } }) => {
         tempOcr = text
         setWarning('Vérifie le premier et dernier code EAN')
+        console.log(tempOcr)
         setTimeout(1000)
       })
 }
-
 const [isAsk, setIsAsk] = useState(true);
 const ask = () =>{
     setIsAsk(!isAsk)
@@ -63,10 +64,16 @@ imageForm.addEventListener('submit', async (e)=>{
                 temp += char
             }
         }
-        // console.log(ean)
         setImportQuantityList([...quantity])
         setImportEanList([...ean])
     })
+    console.log(importQuantityList)
+    console.log(importEanList)
+    let tempTotal = 0
+    quantity.forEach((num)=>{
+        tempTotal += parseInt(num)
+    })
+    setTotalQuantity(tempTotal)
      quantity = []
      ean = []
 
@@ -83,6 +90,7 @@ return(
     {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
     <div className='flex w-full items-center justify-evenly'>
         <h1>Invent01</h1>
+        <div>total : {totalQuantity}</div>
         <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
     </div>
     <div className="flex gap-5">
