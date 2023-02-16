@@ -95,52 +95,51 @@ const copie = () =>{
   //fonction reset du formulaire et des champs textes
 const reset = () => window.location.reload(true)
   return (
-<>
-<h1 className='text-4xl text-center flex items-center justify-center gap-2 my-10 font-bold text-gray-700'>Livraison effectuer avec BarreCode-X APP
-<div className="enc_barrecodex">
-    <img src={codeX}/>
-  </div>
-</h1>
+    <>
+      <h1 className='text-4xl text-center flex items-center justify-center gap-2 my-10 font-bold text-gray-700 relative'>Livraison effectuer avec BarreCode-X APP
+        <div className="enc_barrecodex">
+          <img src={codeX}/>
+        </div>
+      </h1>
 
-<div className="flexer_container">
+      <div className="flex justify-center w-4/5 mx-auto flex-col">
+        <form id="csv_form" className='relative border-2 rounded-md border-main-rose min-w-[33%] w-full flex flex-col items-center' >
 
-  <form id="csv_form" className='relative mt-3 border-2 border-main-rose min-w-[33%]' >
-
-      <label >Ajouter fichier csv</label>
-      <input id="csv_files" type="file" accept='.csv' name="csv_files" multiple required></input>
-      <input type="submit" name="csv_submit" value="Lancer traitement (2 clicks)" className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'></input>
-      <RefreshIcon className='h-10 absolute top-2 right-2 hover:cursor-pointer' onClick={()=>{reset()}}/>
-    </form>
-    </div>
-    <div className="flexer_container flex-wrap">
-    <div className="result_box w-2/5 h-96 px-2 py-4 flex flex-col gap-4 border-2 border-main-rose min-w-fit">
-      <div className="flex items-center justify-between ">
-        <h1>Liste EAN</h1>
+          <label >Ajouter fichier csv</label>
+          <input id="csv_files" type="file" accept='.csv' name="csv_files" multiple required></input>
+          <input type="submit" name="csv_submit" value="Lancer traitement (2 clicks)" className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50 w-fit'></input>
+          <RefreshIcon className='h-10 absolute top-2 right-2 hover:cursor-pointer' onClick={() => { reset() }} />
+        </form>
+        <div className="flex gap-5 w-full mt-3">
+          <div className="result_box w-2/3 h-96 px-2 py-4 flex flex-col gap-4 border-2 border-main-rose min-w-fit rounded-md">
+            <div className="flex items-center justify-between ">
+              <h1>Liste EAN</h1>
+            </div>
+            <div id="result_invent01" className='h-full overflow-auto'></div>
+          </div>
+          <div className="result_box w-1/3 h-96 px-2 py-4 flex flex-col gap-4 border-2 border-main-rose min-w-fit rounded-md">
+            <div className="flex items-center justify-between">
+              <h1>Anomalie retiré du fichier</h1>
+            </div>
+            <div id="result_anomalie" className='h-full overflow-auto'></div>
+          </div>
+        </div>
+          <div className="w-full border-2 border-main-rose h-96 py-4 gap-1 px-2 flex flex-col mt-3 mb-10 rounded-md">
+            <div className='flex w-3/5 justify-evenly mx-auto'>
+              <h2>Fichier Invent01</h2>
+              <DocumentDuplicateIcon onClick={copie} className="hover:cursor-pointer h-6" />
+              <TrashIcon onClick={() => {
+                setCookie("invent01", '', {
+                  path: "/"
+                })
+                console.log(cookies.invent01)
+                window.location.reload(true)
+              }} className="hover:cursor-pointer h-6" />
+            </div>
+            {cookies.invent01 && <h1>{cookies.invent01}</h1>}
+          </div>
       </div>
-      <div id="result_invent01" className='h-full overflow-auto'></div>
-    </div>
-    <div className="result_box w-1/5 h-96 px-2 py-4 flex flex-col gap-4 border-2 border-main-rose min-w-fit">
-      <div className="flex items-center justify-between">
-        <h1>Anomalie retiré du fichier</h1>
-      </div>
-      <div id="result_anomalie" className='h-full overflow-auto'></div>
-    </div>
-    <div className="w-3/5 border-2 border-main-rose rounded-md h-96 py-4 gap-1 px-2 flex flex-col mb-5">
-      <div className='flex w-3/5 justify-evenly mx-auto'>
-        <h2>Fichier Invent01</h2>
-        <DocumentDuplicateIcon onClick={copie} className="hover:cursor-pointer h-6"/>
-        <TrashIcon onClick={()=>{
-            setCookie("invent01", '' , {
-              path: "/"
-            })
-            console.log(cookies.invent01)
-            window.location.reload(true)
-        }}  className="hover:cursor-pointer h-6"/>
-      </div>
-      {cookies.invent01 && <h1>{cookies.invent01}</h1>}
-    </div>
-  </div>
-</>
+    </>
   )
 }
 

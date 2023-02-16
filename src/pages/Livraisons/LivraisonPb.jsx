@@ -89,8 +89,8 @@ return(
             <div>total code ean : {importEanList.length}</div>
             <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
         </div>
-        <div className="flex gap-5">
-            <div>{importEanList.map(item=>(<p>{item}</p>))}</div>
+        <div className="flex gap-5 h-96  overflow-y-auto">
+            <div className='h-full'>{importEanList.map(item=>(<p>{item}</p>))}</div>
             <div>{importQuantityList.map(item=>(<p>{item}</p>))}</div>
         </div>
     </div>
