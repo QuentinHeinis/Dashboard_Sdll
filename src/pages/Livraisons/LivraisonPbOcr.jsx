@@ -67,10 +67,14 @@ return(
 <h1 className='text-4xl text-center my-10 font-bold text-gray-700'>Livraison Petit Bateau ( .txt )</h1>
 
 <div className='w-4/5 mx-auto'>
-    <form id='imageForm' className='flex flex-col items-center border-2 border-main-rose min-w-fit w-full mx-auto py-4 gap-2 px-2 rounded-md mt-4'>
-        <input id='imageInput' type="file" accept=".txt" required/>
-        <button className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'>Lancer traitement</button>
-    </form>
+<form id='imageForm' className='flex flex-col relative items-center border-2 border-main-rose w-full mx-auto py-4 gap-2 px-2 rounded-md mt-4'>
+                <label name="text" className='w-full relative  flex flex-col justify-center items-center gap-2 border-4 border-dashed cursor-pointer rounded-lg h-40 hover:bg-gray-200 hover:border-red-300'>
+                <input id='imageInput' type="file" name='text' accept=".txt" className='absolute top-0 left-0 bottom-0 cursor-pointer w-full '  required/>
+                <p>Clique ou drag and drop le fichier</p>
+                <p className='flex items-center gap-2'><ExclamationIcon className='fill-orange-300 h-6'/> Fichier .txt uniquement <ExclamationIcon className='fill-orange-300 h-6'/> </p>
+                </label>
+                <button className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50 w-fit'>Lancer traitement</button>
+            </form>
     <div className="flex gap-5">
         <div className='border-2 border-main-rose rounded-md w-full h-96  px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
             {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}

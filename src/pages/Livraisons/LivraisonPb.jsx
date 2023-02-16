@@ -79,7 +79,11 @@ return(
 
 <div className="w-4/5 mx-auto">
     <form id='imageForm' className='flex flex-col items-center border-2 border-main-rose w-full mx-auto py-4 gap-2 px-2 rounded-md mt-4'>
-        <input id='imageInput' type="file" accept="image/png, image/jpeg" required/>
+        <label name="input" className='w-full relative  flex flex-col justify-center items-center gap-2  border-4 border-dashed cursor-pointer rounded-lg h-40 hover:bg-gray-200 hover:border-red-300'>
+            <input id='imageInput' name='input' type="file" accept="image/png, image/jpeg" className='absolute top-0 left-0 bottom-0 cursor-pointer w-full ' required/>
+            <p>Clique ou drag and drop le fichier</p>
+            <p className='flex items-center gap-2'><ExclamationIcon className='fill-orange-300 h-6'/> Fichier image uniquement <ExclamationIcon className='fill-orange-300 h-6'/> </p>
+        </label>
         <button className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'>Lancer scan</button>
     </form>
     <div className='border-2 border-main-rose rounded-md w-full px-2  h-96  py-4 mt-3 mx-auto flex flex-col gap-2' >

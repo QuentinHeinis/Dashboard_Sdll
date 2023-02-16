@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { DocumentDuplicateIcon, RefreshIcon, TrashIcon } from '@heroicons/react/outline'
+import { DocumentDuplicateIcon, ExclamationIcon, RefreshIcon, TrashIcon,  } from '@heroicons/react/outline'
 import codeX from '../../images/barcodex.webp';
 import useCookies from 'react-cookie/cjs/useCookies';
 
@@ -104,9 +104,11 @@ const reset = () => window.location.reload(true)
 
       <div className="flex justify-center w-4/5 mx-auto flex-col">
         <form id="csv_form" className='relative border-2 rounded-md border-main-rose min-w-[33%] w-full flex flex-col items-center' >
-
-          <label >Ajouter fichier csv</label>
-          <input id="csv_files" type="file" accept='.csv' name="csv_files" multiple required></input>
+          <label name="csv_files" className='w-full relative flex flex-col justify-center items-center gap-2 border-4 border-dashed cursor-pointer rounded-lg h-40 hover:bg-gray-200 hover:border-red-300'>
+          <input id="csv_files" type="file" accept='.csv' name="csv_files" multiple className='absolute top-0 left-0 bottom-0 cursor-pointer w-full ' required></input>
+            <p>Clique ou drag and drop le fichier</p>
+            <p className='flex items-center gap-2'><ExclamationIcon className='fill-orange-300 h-6'/> Fichier csv uniquement <ExclamationIcon className='fill-orange-300 h-6'/> </p>
+        </label>
           <input type="submit" name="csv_submit" value="Lancer traitement (2 clicks)" className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50 w-fit'></input>
           <RefreshIcon className='h-10 absolute top-2 right-2 hover:cursor-pointer' onClick={() => { reset() }} />
         </form>
