@@ -98,8 +98,8 @@ const Inventaire = () => {
 
           <label >Ajouter fichier csv</label>
           <input id="csv_files" type="file" accept='.csv' name="csv_files" multiple required></input>
-          <label className="mag" >Magasin</label>
-          <select id="csv_mag" name="csv_mag" required>
+          <label className="mag" >Magasin :</label>
+          <select id="csv_mag" name="csv_mag" required className='w-56 h-10 px-3'>
             <option value="" hidden>Choisir</option>
             <option value="v">V</option>
             <option value="va">VA</option>
@@ -107,7 +107,7 @@ const Inventaire = () => {
             <option value="g">G</option>
             <option value="m">M</option>
             <option value="l">L</option>
-            <option value="s">KA</option>
+            <option value="l">KA (S)</option>
           </select>
           <input type="submit" name="csv_submit" value="Lancer traitement (2 clicks)" className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'></input>
           <RefreshIcon className='h-10 absolute top-2 right-2 hover:cursor-pointer' onClick={reset} />
