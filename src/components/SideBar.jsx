@@ -24,7 +24,7 @@ const SideBar = () => {
             {activeMenu && (
             <>
               <div className='flex justify-center items-center relative'>
-                  <Link to="/" onClick={()=> {handleCloseSideBar()}} className="text-2xl flex items-center m-4 gap-2"><SiShopware className='text-xl'/> SDLL <span className='text-xs bg-[#E1E1E1] text-gray-600 px-3 rounded'>v0.1.0</span></Link>
+                  <Link to="/" onClick={()=> {handleCloseSideBar()}} className="text-2xl flex items-center m-4 gap-2"><SiShopware className='text-xl'/> SDLL <span className='text-xs bg-[#E1E1E1] text-gray-600 px-3 rounded'>v1.0.0</span></Link>
                   <button type="button" onClick={() => setActiveMenu(!activeMenu)} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block lg:hidden absolute right-0">
                       <MdOutlineCancel />
                   </button>

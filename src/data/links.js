@@ -30,19 +30,19 @@ export const links = [
                 name: 'Livraison PB/CBL img',
                 link: '/livraisonPb',
                 icon: <PresentationChartLineIcon className='h-6'/>,
-                desc : "livraison petit bateau"
+                desc : "livraison petit bateau a partir d'une image contenant quantité + code ean"
             },
             {
                 name: 'Livraison PB/CBL .txt',
                 link: '/livraisonPbOcr',
                 icon: <PresentationChartLineIcon className='h-6'/>,
-                desc : "livraison "
+                desc : "livraison petit bateau a partir d'un fichier txt créer en faisant l'ocr du BL contenant quantité + code ean"
             },
             {
                 name: 'Livraison Moulin Roty',
                 link: '/livraisonMR',
                 icon: <PresentationChartLineIcon className='h-6'/>,
-                desc : "livraison Moulin roty"
+                desc : "livraison Moulin roty a partir d'un fichier txt créer en faisant l'ocr du BL contenant code ean + quantité"
             },
         ],
     },
