@@ -82,14 +82,14 @@ return(
         <input id='imageInput' type="file" accept="image/png, image/jpeg" required/>
         <button className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'>Lancer scan</button>
     </form>
-    <div className='border-2 border-main-rose rounded-md w-full px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
+    <div className='border-2 border-main-rose rounded-md w-full px-2  h-96  py-4 mt-3 mx-auto flex flex-col gap-2' >
         {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
         <div className='flex w-full items-center justify-evenly'>
             <h1>Invent01</h1>
             <div>total code ean : {importEanList.length}</div>
             <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
         </div>
-        <div className="flex gap-5 h-96  overflow-y-auto">
+        <div className="flex gap-5 h-full overflow-y-auto">
             <div className='h-full'>{importEanList.map(item=>(<p>{item}</p>))}</div>
             <div>{importQuantityList.map(item=>(<p>{item}</p>))}</div>
         </div>

@@ -116,7 +116,7 @@ return(
                 <button className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'>Lancer traitement</button>
             </form>
             <div className="flex gap-5 w-full">
-                <div className='border-2 border-main-rose rounded-md w-2/3 px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
+                <div className='border-2 border-main-rose rounded-md h-96 w-2/3 px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
                     {Warning.length > 1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500' /></p>) : (<p>{Warning}</p>)}
                     <div className='flex w-full items-center justify-evenly'>
                         <h1>Invent01</h1>
@@ -124,7 +124,7 @@ return(
                         <DocumentDuplicateIcon onClick={copie} className="hover:cursor-pointer h-6" />
                     </div>
                     {/* <div>{ocr.split('\n').map(item=>(<p>{item}</p>))}</div> */}
-                    <div className="flex gap-5 h-96  overflow-y-auto">
+                    <div className="flex gap-5   overflow-y-auto">
                         <div>{importRefList.map(item => (<p>{item}</p>))}</div>
                         <div>{importQuantityList.map(item => (<p>{item}</p>))}</div>
                         <div>{importEanList.map(item => (<p>{item}</p>))}</div>
