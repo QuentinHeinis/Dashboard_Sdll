@@ -75,20 +75,24 @@ imageForm.addEventListener('submit', async (e)=>{
 
 return(
 <>
-<form id='imageForm' className='flex flex-col items-center border-2 border-main-rose min-w-fit w-1/3 mx-auto py-4 gap-2 px-2 rounded-md mt-4'>
-    <input id='imageInput' type="file" accept="image/png, image/jpeg" required/>
-    <button className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'>Lancer scan</button>
-</form>
-<div className='border-2 border-main-rose rounded-md w-4/5 md:w-1/2 px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
-    {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
-    <div className='flex w-full items-center justify-evenly'>
-        <h1>Invent01</h1>
-        <div>total code ean : {importEanList.length}</div>
-        <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
-    </div>
-    <div className="flex gap-5">
-        <div>{importEanList.map(item=>(<p>{item}</p>))}</div>
-        <div>{importQuantityList.map(item=>(<p>{item}</p>))}</div>
+<h1 className='text-4xl text-center my-10 font-bold text-gray-700'>Livraison Petit Bateau ( image )</h1>
+
+<div className="w-4/5 mx-auto">
+    <form id='imageForm' className='flex flex-col items-center border-2 border-main-rose w-full mx-auto py-4 gap-2 px-2 rounded-md mt-4'>
+        <input id='imageInput' type="file" accept="image/png, image/jpeg" required/>
+        <button className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'>Lancer scan</button>
+    </form>
+    <div className='border-2 border-main-rose rounded-md w-full px-2 py-4 mt-3 mx-auto flex flex-col gap-2' >
+        {Warning.length>1 ? (<p className='flex mx-auto text-2xl items-center'>{Warning} <ExclamationIcon className='h-10 fill-orange-500'/></p>) : (<p>{Warning}</p>)}
+        <div className='flex w-full items-center justify-evenly'>
+            <h1>Invent01</h1>
+            <div>total code ean : {importEanList.length}</div>
+            <DocumentDuplicateIcon onClick={copie}className="hover:cursor-pointer h-6"/>
+        </div>
+        <div className="flex gap-5">
+            <div>{importEanList.map(item=>(<p>{item}</p>))}</div>
+            <div>{importQuantityList.map(item=>(<p>{item}</p>))}</div>
+        </div>
     </div>
 </div>
     <div>

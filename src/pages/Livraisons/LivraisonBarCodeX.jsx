@@ -96,20 +96,19 @@ const copie = () =>{
 const reset = () => window.location.reload(true)
   return (
 <>
-<div className="title_flexer">
-  <h1>Livraison Chaussures avec BarreCode-X APP</h1>
-  <div className="enc_barrecodex">
+<h1 className='text-4xl text-center flex items-center justify-center gap-2 my-10 font-bold text-gray-700'>Livraison effectuer avec BarreCode-X APP
+<div className="enc_barrecodex">
     <img src={codeX}/>
   </div>
-</div>
+</h1>
 
 <div className="flexer_container">
 
-  <form id="csv_form" className='relative mt-3 border-2 border-main-rose' >
+  <form id="csv_form" className='relative mt-3 border-2 border-main-rose min-w-[33%]' >
 
       <label >Ajouter fichier csv</label>
       <input id="csv_files" type="file" accept='.csv' name="csv_files" multiple required></input>
-      <input type="submit" name="csv_submit" value="Uploader (2 clicks)" className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'></input>
+      <input type="submit" name="csv_submit" value="Lancer traitement (2 clicks)" className='bg-slate-500 px-4 py-2 rounded-lg text-slate-50'></input>
       <RefreshIcon className='h-10 absolute top-2 right-2 hover:cursor-pointer' onClick={()=>{reset()}}/>
     </form>
     </div>
